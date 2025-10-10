@@ -1,13 +1,14 @@
 title: The Machine and the Logos
-description: A three‑act poetic play on creation, code, and the Word.
+description: A three-act poetic play on creation, code, and the Word.
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
   toc_levels: 1..3
+author: Mark Baldwin-Smith & ChatGPT
+image: /file_00000000e2d461f58a1a038ceebb3230.png
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - vendor
-

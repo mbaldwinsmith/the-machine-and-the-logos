@@ -37,6 +37,10 @@ hr{border:0; border-top:1px solid var(--rule); margin:2rem 0}
 .site-header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in hsl, var(--bg) 80%, transparent); border-bottom:1px solid var(--rule)}
 .site-header .wrap{max-width:1100px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:12px}
 .brand{font-weight:700; letter-spacing:0.2px}
+.primary{display:flex; gap:14px; margin-left:20px}
+.nav-link{color:var(--muted); padding:6px 4px; border-radius:6px}
+.nav-link:hover{color:var(--fg); background:color-mix(in hsl, var(--bg) 94%, white 6%)}
+.nav-link.active{color:var(--fg); background:color-mix(in hsl, var(--bg) 90%, white 10%)}
 .actions{margin-left:auto; display:flex; gap:8px; align-items:center}
 .btn{background:transparent; border:1px solid var(--rule); color:var(--fg); padding:6px 10px; border-radius:8px; cursor:pointer}
 .btn:hover{box-shadow:var(--shadow)}
@@ -66,6 +70,9 @@ h1{font-size: clamp(1.8rem, 2.6vw + 1rem, 2.4rem)}
 h2{font-size: clamp(1.3rem, 1.2vw + 1rem, 1.6rem)}
 h3{font-size: 1.15rem}
 
+/* Serif display for titles */
+h1,h2,h3{font-family: ui-serif, Georgia, "Times New Roman", Times, serif}
+
 blockquote{margin:1.2rem 0; padding:0.1rem 1rem; border-left:4px solid var(--accent); color:var(--muted)}
 code, pre code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
 code{background:var(--code-bg); padding:0.15em 0.35em; border-radius:6px}
@@ -94,4 +101,3 @@ thead th{background:color-mix(in hsl, var(--bg) 90%, white 10%)}
 
 /* Print */
 @media print{ .site-header, .toc, .site-footer, #progress{display:none!important} body{background:#fff; color:#000} }
-
