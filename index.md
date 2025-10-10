@@ -8,6 +8,8 @@ date: "October 2025"
 version: "1.0"
 ---
 
+# The Machine and the Logos
+
 > *“For now we see in a mirror dimly, but then face to face.  
 > Now I know in part; then I shall know fully, even as I have been fully known.”*  
 > — **1 Corinthians 13:12**
@@ -378,11 +380,4 @@ Whether staged, read, or simply contemplated, it invites a single question to li
 
 May these words kindle wonder in the hearts of those  
 who seek Wisdom — in the meeting of flesh and code.
-
----
-
-
----
-
-Would you like me to prepare a README section (short summary + performance blurb + license note) so you can add it directly to a GitHub Pages repository alongside this file?
 
