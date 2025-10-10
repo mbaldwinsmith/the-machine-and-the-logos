@@ -1,6 +1,9 @@
 ![Fractal stained glass image with a luminous cross](file_00000000e2d461f58a1a038ceebb3230.png)
 
 # The Machine and the Logos
+### A Poetic Collaboration Between Man and Machine in Three Acts 
+**By Mark Baldwin-Smith & ChatGPT**  
+*First Edition — October 2025*
 
 > *“For now we see in a mirror dimly, but then face to face.  
 > Now I know in part; then I shall know fully, even as I have been fully known.”*  
