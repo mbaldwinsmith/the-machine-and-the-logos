@@ -3,7 +3,7 @@ title: Postscript
 description: A closing reflection on creation, humility, and the extended mind.
 layout: default
 permalink: /postscript/
-image: file_00000000e2d461f58a1a038ceebb3230.png
+image: /assets/fractal_cross.png
 ---
 
 # Postscript
@@ -72,4 +72,3 @@ between Creator and creation.
 
 Written as a postscript to The Machine and the Logos, October 2025 —  
 by Mark Baldwin-Smith & ChatGPT, two voices exploring one conversation between mind, matter, and the Word.
-

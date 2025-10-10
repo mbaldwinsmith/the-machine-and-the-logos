@@ -3,7 +3,7 @@ title: About
 description: About The Machine and the Logos — the vision, authors, and how to engage with the work.
 layout: default
 permalink: /about/
-image: file_00000000e2d461f58a1a038ceebb3230.png
+image: /assets/fractal_cross.png
 ---
 
 # About

@@ -3,7 +3,7 @@ title: Performance Notes
 description: Practical guidance for staging, music, and pacing for The Machine and the Logos.
 layout: default
 permalink: /performance-notes/
-image: file_00000000e2d461f58a1a038ceebb3230.png
+image: /assets/fractal_cross.png
 ---
 
 # Performance Notes
@@ -51,4 +51,3 @@ These notes condense practical guidance for staging, sound, and pacing. For full
 
 Non‑commercial sharing and performance permitted with attribution to both authors.  
 For commercial or published productions, please contact Mark Baldwin‑Smith.
-

@@ -2,10 +2,10 @@
 title: The Machine and the Logos
 description: A three-act poetic play on creation, code, and the Word.
 layout: default
-image: file_00000000e2d461f58a1a038ceebb3230.png
+image: /assets/fractal_cross.png
 ---
 
-![Fractal stained glass image with a luminous cross](file_00000000e2d461f58a1a038ceebb3230.png)
+![Fractal stained glass image with a luminous cross]({{ '/assets/fractal_cross.png' | relative_url }})
 
 # The Machine and the Logos
 ### A Poetic Collaboration Between Man and Machine in Three Acts
