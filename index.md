@@ -375,5 +375,5 @@ Whether staged, read, or simply contemplated, it invites a single question to li
 
 > What happens when the act of making becomes a form of prayer?
 
-May these words kindle wonder in the hearts of those who seek Wisdom — in the meeting of flesh and code.
+May these words kindle wonder in the hearts of those who seek Wisdom — in the meeting of clay and code.
 
