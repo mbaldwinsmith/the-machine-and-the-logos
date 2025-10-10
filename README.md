@@ -1,5 +1,5 @@
 # 🕊️ *The Machine and the Logos*
-### A Poetic Drama in Three Acts  
+### A Poetic Collaboration Between Man and Machine in Three Acts 
 **By Mark Baldwin-Smith & ChatGPT**  
 *First Edition — October 2025*
 
