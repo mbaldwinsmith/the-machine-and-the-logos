@@ -88,7 +88,7 @@
       update();
     })();
 
-    // Build on-page ToC from headings (h1–h3)
+    // Build on-page ToC from headings (h1–h3) with collapsible sections
     (function(){
       const container = document.getElementById('toc');
       const content = document.querySelector('.content');
@@ -97,13 +97,55 @@
       if (!heads.length) return;
       const list = document.createElement('nav');
       list.className = 'toc-list';
-      heads.forEach(h => {
+
+      const sections = [];
+      const idToLink = new Map();
+      let current = null;
+
+      function makeSection(h1){
+        const sec = document.createElement('div');
+        sec.className = 'toc-section';
+        const row = document.createElement('div');
+        row.className = 'toc-row';
+        const toggle = document.createElement('button');
+        toggle.className = 'toc-toggle';
+        toggle.setAttribute('aria-label','Toggle section');
+        toggle.textContent = '▸';
         const a = document.createElement('a');
-        a.href = '#' + h.id;
-        a.textContent = h.textContent.replace(/\s*\{#.*\}\s*$/, '');
-        a.className = 'toc-link level-' + h.tagName.substring(1);
-        list.appendChild(a);
+        a.href = '#' + h1.id;
+        a.textContent = h1.textContent.replace(/\s*\{#.*\}\s*$/, '');
+        a.className = 'toc-link level-1';
+        row.appendChild(toggle);
+        row.appendChild(a);
+        sec.appendChild(row);
+        const children = document.createElement('div');
+        children.className = 'toc-children';
+        sec.appendChild(children);
+        toggle.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); sec.classList.toggle('expanded'); });
+        list.appendChild(sec);
+        const entry = { sec, row, toggle, a, children, id: h1.id };
+        sections.push(entry);
+        return entry;
+      }
+
+      // Build hierarchical ToC
+      heads.forEach(h => {
+        const level = parseInt(h.tagName.substring(1),10);
+        if (level === 1){
+          current = makeSection(h);
+          const link = current.a; idToLink.set(h.id, link); link.dataset.parent = h.id;
+        } else {
+          if (!current) current = makeSection({ id: 'top', textContent: 'Top' });
+          const a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.textContent.replace(/\s*\{#.*\}\s*$/, '');
+          a.className = 'toc-link level-' + level;
+          a.dataset.parent = current.id;
+          current.children.appendChild(a);
+          idToLink.set(h.id, a);
+        }
       });
+
       const title = document.createElement('div');
       title.className = 'toc-title';
       title.textContent = 'Contents';
@@ -113,6 +155,7 @@
       // Highlight active section
       const links = Array.from(list.querySelectorAll('a'));
       const map = new Map(links.map(l => [l.getAttribute('href').slice(1), l]));
+      const sectionById = new Map(sections.map(s => [s.id, s]));
       function getHeaderH(){
         const v = getComputedStyle(document.documentElement).getPropertyValue('--header-h').trim();
         return parseInt(v || '64', 10) || 64;
@@ -126,6 +169,12 @@
           activeLink.classList.add('active');
           // Keep active link visible within scrollable ToC
           activeLink.scrollIntoView({ block: 'nearest' });
+          // Expand the owning section; collapse others
+          const parentId = activeLink.dataset.parent || activeId;
+          sections.forEach(s => {
+            if (s.id === parentId) s.sec.classList.add('expanded');
+            else s.sec.classList.remove('expanded');
+          });
         }
       }, { rootMargin: `-${getHeaderH()+6}px 0px -60% 0px`, threshold: [0, 1] });
       heads.forEach(h => obs.observe(h));

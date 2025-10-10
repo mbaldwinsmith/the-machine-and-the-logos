@@ -59,12 +59,18 @@ hr{border:0; border-top:1px solid var(--rule); margin:2rem 0}
 .toc{position:sticky; top: calc(var(--header-h) + 12px); align-self:start; border:1px solid var(--rule); border-radius:12px; padding:14px; background: color-mix(in hsl, var(--bg) 96%, white 4%); max-height: calc(100vh - var(--header-h) - 24px); overflow:auto; overscroll-behavior: contain}
 .toc-title{font-weight:600; margin-bottom:8px}
 .toc-list{display:flex; flex-direction:column; gap:6px}
+.toc-section{border-radius:8px; padding:4px 6px}
+.toc-row{display:flex; align-items:center; gap:6px}
+.toc-toggle{appearance:none; -webkit-appearance:none; border:0; background:transparent; color:var(--muted); cursor:pointer; font-size:0.9em; line-height:1; transform: translateY(-1px);}
+.toc-section.expanded .toc-toggle{transform: translateY(-1px) rotate(90deg)}
 .toc-link{display:block; padding:4px 6px; border-radius:6px; color:var(--muted)}
 .toc-link:hover{color:var(--fg); background:color-mix(in hsl, var(--bg) 94%, white 6%)}
 .toc-link.active{color:var(--fg); background:color-mix(in hsl, var(--bg) 90%, white 10%);}
 .toc-link.level-1{font-weight:600}
 .toc-link.level-2{padding-left:14px}
 .toc-link.level-3{padding-left:24px; font-size:0.95em}
+.toc-children{display:none; flex-direction:column; gap:6px; margin-top:4px}
+.toc-section.expanded > .toc-children{display:flex}
 
 .content{min-width:0}
 .content > :first-child{margin-top:0}
