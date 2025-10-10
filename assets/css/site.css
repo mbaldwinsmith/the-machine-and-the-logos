@@ -52,6 +52,12 @@ hr{border:0; border-top:1px solid var(--rule); margin:2rem 0}
 .nav-link:hover{color:var(--fg); background:color-mix(in hsl, var(--bg) 94%, white 6%)}
 .nav-link.active{color:var(--fg); background:color-mix(in hsl, var(--bg) 90%, white 10%)}
 .actions{margin-left:auto; display:flex; gap:8px; align-items:center}
+.menu-toggle{display:none; align-items:center; gap:8px; font-weight:600}
+.menu-toggle .hamburger{display:inline-flex; flex-direction:column; gap:4px; margin-right:2px}
+.menu-toggle .hamburger span{display:block; width:18px; height:2px; background:var(--fg); border-radius:2px; transition:transform .2s ease, opacity .2s ease}
+.menu-toggle.is-active .hamburger span:nth-child(1){transform: translateY(6px) rotate(45deg)}
+.menu-toggle.is-active .hamburger span:nth-child(2){opacity:0}
+.menu-toggle.is-active .hamburger span:nth-child(3){transform: translateY(-6px) rotate(-45deg)}
 .btn{background:transparent; border:1px solid var(--rule); color:var(--fg); padding:6px 10px; border-radius:8px; cursor:pointer}
 .btn:hover{box-shadow:var(--shadow)}
 .btn.subtle{border-color:transparent; padding:6px}
@@ -159,21 +165,37 @@ tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
   .site-header .wrap{
     flex-wrap:wrap;
     gap:10px 12px;
-    align-items:flex-start;
+    align-items:center;
+    position:relative;
   }
   .brand{
     flex:1 0 auto;
   }
-  .primary{
-    order:3;
-    width:100%;
+  body.nav-ready .menu-toggle{
+    display:inline-flex;
+  }
+  body.nav-ready .primary{
+    position:absolute;
+    top:calc(100% + 8px);
+    left:20px;
+    right:20px;
     margin-left:0;
-    flex-wrap:wrap;
-    justify-content:space-between;
+    display:none;
+    flex-direction:column;
+    gap:6px;
+    padding:12px;
+    border:1px solid var(--rule);
+    border-radius:12px;
+    background:color-mix(in hsl, var(--bg) 96%, white 4%);
+    box-shadow:var(--shadow);
+    z-index:100;
+  }
+  body.nav-ready .primary.is-open{
+    display:flex;
   }
   .primary .nav-link{
-    flex:1 0 calc(50% - 6px);
-    text-align:center;
+    text-align:left;
+    padding:10px;
   }
   .actions{
     gap:6px;
