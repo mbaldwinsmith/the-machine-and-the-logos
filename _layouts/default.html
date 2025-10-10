@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,29 +10,117 @@
     {% if page.image %}
     <meta property="og:image" content="{{ page.image }}">
     {% endif %}
-    <style>
-      :root{
-        --fg:#111; --bg:#fff; --muted:#666; --link:#0b5bd3; --rule:#e5e5e5;
-      }
-      html,body{height:100%}
-      body{margin:0; color:var(--fg); background:var(--bg); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"}
-      .container{max-width: 860px; margin: 0 auto; padding: 24px}
-      h1,h2,h3{line-height:1.25}
-      h1{font-size:2rem; margin-top:0.2rem}
-      hr{border:0; border-top:1px solid var(--rule); margin:24px 0}
-      img{max-width:100%; height:auto}
-      code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 0.95em; background:#f6f8fa; padding:0.1em 0.3em; border-radius:4px}
-      table{border-collapse:collapse; width:100%;}
-      th,td{border:1px solid var(--rule); padding:6px 8px; text-align:left}
-      a{color:var(--link); text-decoration:none}
-      a:hover{text-decoration:underline}
-      blockquote{margin:0; padding-left:1em; border-left:4px solid var(--rule); color:var(--muted)}
-    </style>
+    <link rel="stylesheet" href="{{ "/assets/css/site.css" | relative_url }}">
   </head>
   <body>
-    <main class="container">
-      {{ content }}
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="{{ "/" | relative_url }}">{{ site.title | default: page.title }}</a>
+        <nav class="actions">
+          <button id="theme-toggle" class="btn" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+          <a class="btn subtle" href="{{ site.github.repository_url | default: (site.repo | default: '') }}" target="_blank" rel="noopener">Repo</a>
+        </nav>
+      </div>
+      <div id="progress" aria-hidden="true"></div>
+    </header>
+
+    <main class="site-main">
+      <aside id="toc" class="toc" aria-label="Table of contents"></aside>
+      <article class="content">
+        {{ content }}
+      </article>
     </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© {{ site.time | date: '%Y' }} {{ site.author | default: "" }}</span>
+        <span class="spacer"></span>
+        <a href="#" class="top" aria-label="Back to top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script>
+    // Theme toggle with persistence
+    (function(){
+      const key = 'theme';
+      const root = document.documentElement;
+      const btn = document.getElementById('theme-toggle');
+      const stored = localStorage.getItem(key);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      function setTheme(mode){
+        root.setAttribute('data-theme', mode);
+        localStorage.setItem(key, mode);
+        btn.textContent = mode === 'dark' ? '☀️' : '🌙';
+      }
+      setTheme(stored || (prefersDark ? 'dark' : 'light'));
+      btn && btn.addEventListener('click', ()=>{
+        setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+    })();
+
+    // Build on-page ToC from headings (h1–h3)
+    (function(){
+      const container = document.getElementById('toc');
+      const content = document.querySelector('.content');
+      if (!container || !content) return;
+      const heads = content.querySelectorAll('h1[id], h2[id], h3[id]');
+      if (!heads.length) return;
+      const list = document.createElement('nav');
+      list.className = 'toc-list';
+      heads.forEach(h => {
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent.replace(/\s*\{#.*\}\s*$/, '');
+        a.className = 'toc-link level-' + h.tagName.substring(1);
+        list.appendChild(a);
+      });
+      const title = document.createElement('div');
+      title.className = 'toc-title';
+      title.textContent = 'Contents';
+      container.appendChild(title);
+      container.appendChild(list);
+
+      // Highlight active section
+      const links = Array.from(list.querySelectorAll('a'));
+      const map = new Map(links.map(l => [l.getAttribute('href').slice(1), l]));
+      const obs = new IntersectionObserver(entries => {
+        let activeId = null;
+        entries.forEach(e => { if (e.isIntersecting) activeId = e.target.id; });
+        if (activeId && map.has(activeId)) {
+          links.forEach(l => l.classList.remove('active'));
+          map.get(activeId).classList.add('active');
+        }
+      }, { rootMargin: '0px 0px -70% 0px', threshold: [0, 1] });
+      heads.forEach(h => obs.observe(h));
+    })();
+
+    // Reading progress bar & back-to-top
+    (function(){
+      const bar = document.getElementById('progress');
+      const topLink = document.querySelector('.site-footer .top');
+      function onScroll(){
+        const h = document.documentElement;
+        const scrolled = h.scrollTop || document.body.scrollTop;
+        const height = h.scrollHeight - h.clientHeight;
+        const p = height > 0 ? Math.min(100, Math.max(0, (scrolled/height)*100)) : 0;
+        bar && (bar.style.setProperty('--progress', p + '%'));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      topLink && topLink.addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+
+    // Anchor link icons on headings
+    (function(){
+      document.querySelectorAll('.content h1[id], .content h2[id], .content h3[id]').forEach(h => {
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.className = 'anchor';
+        a.setAttribute('aria-label', 'Link to section');
+        a.textContent = '#';
+        h.appendChild(a);
+      });
+    })();
+    </script>
   </body>
   </html>
-
