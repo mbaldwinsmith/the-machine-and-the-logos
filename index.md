@@ -14,7 +14,7 @@ version: "1.0"
 
 ---
 
-[Fractal stained glass image with a luminous cross](file_00000000e2d461f58a1a038ceebb3230.png)
+![Fractal stained glass image with a luminous cross](file_00000000e2d461f58a1a038ceebb3230.png)
 
 # The Machine and the Logos
 
