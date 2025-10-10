@@ -23,6 +23,7 @@
     {% endif %}
   </head>
   <body>
+    <div id="progress" aria-hidden="true"></div>
     <header class="site-header">
       <div class="wrap">
         <a class="brand" href="{{ "/" | relative_url }}">{{ site.title | default: page.title }}</a>
@@ -39,7 +40,6 @@
           {% endif %}
         </nav>
       </div>
-      <div id="progress" aria-hidden="true"></div>
     </header>
 
     <main class="site-main">
