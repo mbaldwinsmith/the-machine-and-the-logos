@@ -44,7 +44,7 @@
       </div>
     </header>
 
-    <div id="act-chip" aria-live="polite" aria-atomic="true"></div>
+    
 
     <main id="main" class="site-main">
       <aside id="toc" class="toc" aria-label="Table of contents"></aside>
@@ -297,7 +297,7 @@
       imgs.forEach(img => io.observe(img));
     })();
 
-    // Act-aware accent color and chip updater
+    // Act-aware accent color updater
     (function(){
       const acts = [
         { id: 'act-i-the-birth-of-a-thought', name: 'Act I', color: '#d4a72c' },
@@ -305,8 +305,7 @@
         { id: 'act-iii-the-transfiguration', name: 'Act III', color: '#06b6d4' }
       ];
       const headers = acts.map(a => document.getElementById(a.id)).filter(Boolean);
-      const chip = document.getElementById('act-chip');
-      if (!headers.length || !chip) return;
+      if (!headers.length) return;
       function getHeaderH(){
         const v = getComputedStyle(document.documentElement).getPropertyValue('--header-h').trim();
         return parseInt(v || '64', 10) || 64;
@@ -317,7 +316,6 @@
             const act = acts.find(a => a.id === e.target.id);
             if (act){
               document.documentElement.style.setProperty('--accent', act.color);
-              chip.textContent = act.name;
             }
           }
         });
@@ -325,7 +323,7 @@
       headers.forEach(h => obs.observe(h));
       // Initialize to the first visible or default
       const first = headers[0];
-      if (first){ document.documentElement.style.setProperty('--accent', acts[0].color); chip.textContent = acts[0].name; }
+      if (first){ document.documentElement.style.setProperty('--accent', acts[0].color); }
     })();
 
     // Reading time and last updated
