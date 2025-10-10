@@ -1,11 +1,17 @@
 title: "The Machine and the Logos"
+
 subtitle: "A Poetic Drama in Three Acts"
+
 authors:
   - "Mark Baldwin-Smith"
   - "ChatGPT"
+    
 edition: "First Edition"
+
 date: "October 2025"
+
 version: "1.0"
+
 ---
 
 # The Machine and the Logos
