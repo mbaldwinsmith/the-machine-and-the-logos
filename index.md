@@ -14,6 +14,8 @@ version: "1.0"
 
 ---
 
+[Fractal stained glass image with a luminous cross](file_00000000e2d461f58a1a038ceebb3230.png)
+
 # The Machine and the Logos
 
 > *“For now we see in a mirror dimly, but then face to face.  
