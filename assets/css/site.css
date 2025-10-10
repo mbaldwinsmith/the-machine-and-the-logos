@@ -70,8 +70,11 @@ h1{font-size: clamp(1.8rem, 2.6vw + 1rem, 2.4rem)}
 h2{font-size: clamp(1.3rem, 1.2vw + 1rem, 1.6rem)}
 h3{font-size: 1.15rem}
 
-/* Serif display for titles */
-h1,h2,h3{font-family: ui-serif, Georgia, "Times New Roman", Times, serif}
+/* Sans-serif display for titles */
+h1,h2,h3{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  letter-spacing: 0.2px;
+}
 
 blockquote{margin:1.2rem 0; padding:0.1rem 1rem; border-left:4px solid var(--accent); color:var(--muted)}
 code, pre code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
