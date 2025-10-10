@@ -25,7 +25,7 @@ The Machine and the Logos is a lyrical three‑act play about creation, intellig
 ## Read & Perform
 
 - Read the full script: [homepage]({{ '/' | relative_url }})  
-- See staging and music advice: [Performance Notes](/performance-notes/)
+- See staging and music advice: [Performance Notes]({{ '/performance-notes/' | relative_url }})
 
 ## License
 

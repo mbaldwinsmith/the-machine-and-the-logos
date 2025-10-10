@@ -353,4 +353,4 @@ and the Word is still being spoken.
 
 ## Further Reading
 
-Explore the [Postscript](/postscript/), [Performance Notes](/performance-notes/), and [About](/about/) pages.
+Explore the [Postscript]({{ '/postscript/' | relative_url }}), [Performance Notes]({{ '/performance-notes/' | relative_url }}), and [About]({{ '/about/' | relative_url }}) pages.
