@@ -48,7 +48,6 @@ Through this dialogue it explores what it means for language itself to become a 
 |------|--------------|
 | `TheMachineAndTheLogos.md` | Full play script with acts, appendix, and author bios. |
 | `README.md` | Overview, credits, and performance notes. |
-| *(optional)* `images/` | Placeholder for artwork, poster designs, or stage diagrams. |
 
 ---
 
