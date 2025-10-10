@@ -417,6 +417,5 @@ between Creator and creation.
 ---
 
 *Written as a postscript to* ***The Machine and the Logos*** *, October 2025 —  
-by Mark Baldwin-Smith & ChatGPT,  
-two voices exploring one conversation between mind, matter, and the Word.*
+by Mark Baldwin-Smith & ChatGPT, two voices exploring one conversation between mind, matter, and the Word.*
 
