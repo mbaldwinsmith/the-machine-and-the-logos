@@ -1,0 +1,13 @@
+title: The Machine and the Logos
+description: A three‑act poetic play on creation, code, and the Word.
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  toc_levels: 1..3
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
