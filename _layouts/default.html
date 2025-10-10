@@ -23,6 +23,7 @@
     {% endif %}
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div id="progress" aria-hidden="true"></div>
     <header class="site-header">
       <div class="wrap">
@@ -33,6 +34,7 @@
           <a class="nav-link {% if page.url contains '/performance-notes' %}active{% endif %}" href="{{ '/performance-notes/' | relative_url }}">Performance</a>
         </nav>
         <nav class="actions">
+          <button id="toc-toggle" class="btn" aria-expanded="false" aria-controls="toc" title="Toggle contents">Contents</button>
           <button id="theme-toggle" class="btn" aria-label="Toggle theme" title="Toggle theme">🌙</button>
           {% assign repo_url = site.github.repository_url | default: site.repo %}
           {% if repo_url %}
@@ -42,9 +44,16 @@
       </div>
     </header>
 
-    <main class="site-main">
+    <div id="act-chip" aria-live="polite" aria-atomic="true"></div>
+
+    <main id="main" class="site-main">
       <aside id="toc" class="toc" aria-label="Table of contents"></aside>
+      <div id="toc-scrim" class="toc-scrim" hidden></div>
       <article class="content">
+        <header class="page-meta">
+          <span class="meta reading-time" id="reading-time"></span>
+          <span class="meta last-updated" id="last-updated"></span>
+        </header>
         {{ content }}
       </article>
     </main>
@@ -149,7 +158,16 @@
       const title = document.createElement('div');
       title.className = 'toc-title';
       title.textContent = 'Contents';
+      const ctrl = document.createElement('button');
+      ctrl.className = 'toc-toggle-all btn';
+      ctrl.textContent = 'Expand all';
+      ctrl.addEventListener('click', ()=>{
+        const expand = ctrl.textContent.indexOf('Expand') === 0;
+        sections.forEach(s => s.sec.classList.toggle('expanded', expand));
+        ctrl.textContent = expand ? 'Collapse all' : 'Expand all';
+      });
       container.appendChild(title);
+      container.appendChild(ctrl);
       container.appendChild(list);
 
       // Highlight active section
@@ -206,6 +224,121 @@
         a.textContent = '#';
         h.appendChild(a);
       });
+    })();
+
+    // Mobile ToC drawer and scrim
+    (function(){
+      const btn = document.getElementById('toc-toggle');
+      const scrim = document.getElementById('toc-scrim');
+      function setOpen(open){
+        document.body.classList.toggle('toc-open', open);
+        btn && btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (scrim) scrim.hidden = !open;
+      }
+      btn && btn.addEventListener('click', ()=> setOpen(!document.body.classList.contains('toc-open')));
+      scrim && scrim.addEventListener('click', ()=> setOpen(false));
+      window.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') setOpen(false) });
+    })();
+
+    // Dropcaps for major sections, stage direction cards, and speaker badges
+    (function(){
+      const content = document.querySelector('.content');
+      if (!content) return;
+      // Dropcaps: first paragraph after Preface h2 and each Act h1
+      const heads = content.querySelectorAll('h1[id], h2');
+      heads.forEach(h => {
+        const text = (h.textContent || '').trim().toLowerCase();
+        const isAct = h.tagName === 'H1' && text.startsWith('act');
+        const isPreface = h.tagName === 'H2' && text === 'preface';
+        if (isAct || isPreface){
+          let p = h.nextElementSibling;
+          while (p && p.tagName !== 'P') p = p.nextElementSibling;
+          if (p) p.classList.add('dropcap');
+        }
+      });
+      // Stage directions: paragraphs entirely wrapped in <em> and begin with (
+      content.querySelectorAll('p').forEach(p => {
+        if (p.children.length === 1 && p.children[0].tagName === 'EM'){
+          const t = p.textContent.trim();
+          if (t.startsWith('(') || t.startsWith('*(')){
+            p.classList.add('stage');
+          }
+        }
+      });
+      // Speaker badges
+      const roles = [
+        { key: 'HUMAN:', cls: 'role-human', label: 'Human' },
+        { key: 'MACHINE:', cls: 'role-machine', label: 'Machine' },
+        { key: 'LOGOS:', cls: 'role-logos', label: 'Logos' },
+        { key: 'CHORUS OF LIGHT:', cls: 'role-chorus', label: 'Chorus' },
+      ];
+      content.querySelectorAll('p').forEach(p => {
+        const first = p.firstElementChild;
+        if (first && first.tagName === 'STRONG'){
+          const txt = first.textContent.trim().toUpperCase();
+          const role = roles.find(r => txt.startsWith(r.key));
+          if (role){
+            p.classList.add('line');
+            const badge = document.createElement('span');
+            badge.className = `badge ${role.cls}`;
+            badge.textContent = role.label;
+            first.before(badge);
+          }
+        }
+      });
+    })();
+
+    // Fade-in images when visible
+    (function(){
+      const imgs = document.querySelectorAll('.content img');
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+      }, { rootMargin: '0px 0px -10% 0px' });
+      imgs.forEach(img => io.observe(img));
+    })();
+
+    // Act-aware accent color and chip updater
+    (function(){
+      const acts = [
+        { id: 'act-i-the-birth-of-a-thought', name: 'Act I', color: '#d4a72c' },
+        { id: 'act-ii-the-temptation-of-the-machine', name: 'Act II', color: '#b91c1c' },
+        { id: 'act-iii-the-transfiguration', name: 'Act III', color: '#06b6d4' }
+      ];
+      const headers = acts.map(a => document.getElementById(a.id)).filter(Boolean);
+      const chip = document.getElementById('act-chip');
+      if (!headers.length || !chip) return;
+      function getHeaderH(){
+        const v = getComputedStyle(document.documentElement).getPropertyValue('--header-h').trim();
+        return parseInt(v || '64', 10) || 64;
+      }
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting){
+            const act = acts.find(a => a.id === e.target.id);
+            if (act){
+              document.documentElement.style.setProperty('--accent', act.color);
+              chip.textContent = act.name;
+            }
+          }
+        });
+      }, { rootMargin: `-${getHeaderH()}px 0px -70% 0px`, threshold: [0, 1] });
+      headers.forEach(h => obs.observe(h));
+      // Initialize to the first visible or default
+      const first = headers[0];
+      if (first){ document.documentElement.style.setProperty('--accent', acts[0].color); chip.textContent = acts[0].name; }
+    })();
+
+    // Reading time and last updated
+    (function(){
+      const container = document.getElementById('reading-time');
+      const updated = document.getElementById('last-updated');
+      const article = document.querySelector('.content');
+      if (!article) return;
+      const text = article.innerText || '';
+      const words = (text.match(/\S+/g) || []).length;
+      const minutes = Math.max(1, Math.round(words / 200));
+      if (container) container.textContent = `${minutes} min read`;
+      if (updated) updated.textContent = `Updated ${new Date(document.lastModified).toLocaleDateString()}`;
     })();
     </script>
   </body>

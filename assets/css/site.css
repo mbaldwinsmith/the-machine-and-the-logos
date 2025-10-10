@@ -5,21 +5,23 @@
   --muted: #5b616e;
   --rule: #e5e7eb;
   --link: #0b5bd3;
-  --accent: #007acc;
+  --accent: #007acc; /* default; updates by section */
   --code-bg: #f6f8fa;
   --shadow: 0 8px 24px rgba(0,0,0,0.08);
   --header-h: 64px; /* will be updated by JS */
+  --chip-bg: color-mix(in hsl, var(--bg) 86%, white 14%);
 }
 
 [data-theme="dark"]{
   --bg: #0f1216;
   --fg: #e6e6e6;
-  --muted: #9aa3af;
+  --muted: #a3adbb;
   --rule: #23272e;
-  --link: #6ca7ff;
+  --link: #88b5ff;
   --accent: #4da3ff;
   --code-bg: #161a22;
   --shadow: 0 8px 24px rgba(0,0,0,0.4);
+  --chip-bg: color-mix(in hsl, var(--bg) 86%, black 14%);
 }
 
 /* Essentials */
@@ -33,6 +35,10 @@ a{color:var(--link); text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%; height:auto;}
 hr{border:0; border-top:1px solid var(--rule); margin:2rem 0}
+
+/* Skip link */
+.skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+.skip-link:focus{position:fixed; left:16px; top:10px; width:auto; height:auto; padding:8px 10px; background:var(--chip-bg); color:var(--fg); border:1px solid var(--rule); border-radius:8px; z-index:10000}
 
 /* Header */
 .site-header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in hsl, var(--bg) 80%, transparent); border-bottom:1px solid var(--rule)}
@@ -53,8 +59,10 @@ hr{border:0; border-top:1px solid var(--rule); margin:2rem 0}
 }
 
 /* Layout */
-.site-main{max-width:1100px; margin:0 auto; padding:24px 20px; display:grid; grid-template-columns: 260px 1fr; gap:28px}
-@media (max-width: 960px){ .site-main{grid-template-columns: 1fr} .toc{display:none} }
+.site-main{max-width:1100px; margin:0 auto; padding:24px 20px; display:grid; grid-template-columns: 260px 1fr; gap:28px; position:relative}
+@media (max-width: 960px){
+  .site-main{grid-template-columns: 1fr}
+}
 
 .toc{position:sticky; top: calc(var(--header-h) + 12px); align-self:start; border:1px solid var(--rule); border-radius:12px; padding:14px; background: color-mix(in hsl, var(--bg) 96%, white 4%); max-height: calc(100vh - var(--header-h) - 24px); overflow:auto; overscroll-behavior: contain}
 .toc-title{font-weight:600; margin-bottom:8px}
@@ -72,10 +80,23 @@ hr{border:0; border-top:1px solid var(--rule); margin:2rem 0}
 .toc-children{display:none; flex-direction:column; gap:6px; margin-top:4px}
 .toc-section.expanded > .toc-children{display:flex}
 
-.content{min-width:0}
+/* Mobile ToC drawer */
+@media (max-width: 960px){
+  .toc{position:fixed; inset:auto 0 0 auto; top:var(--header-h); right:0; width:min(92vw, 420px); max-height: calc(100vh - var(--header-h)); transform: translateX(100%); transition: transform .25s ease; z-index: 9998; box-shadow: var(--shadow)}
+  body.toc-open .toc{transform: translateX(0%)}
+  .toc-scrim{display:none}
+  body.toc-open .toc-scrim{display:block; position:fixed; inset:0; background:rgba(0,0,0,.35); z-index: 9997}
+}
+
+.content{min-width:0; max-width:68ch}
 .content > :first-child{margin-top:0}
 /* Prevent headings from hiding under sticky header on hash navigation */
 .content h1[id], .content h2[id], .content h3[id]{ scroll-margin-top: calc(var(--header-h) + 12px) }
+
+/* Drop caps on first paragraph after major headings */
+.dropcap:first-letter{
+  float:left; font-size:3.2em; line-height:0.9; padding-right:0.08em; padding-top:0.08em; font-weight:700; color: var(--fg);
+}
 
 /* Typography */
 h1,h2,h3{line-height:1.25; margin:1.6rem 0 0.8rem}
@@ -97,16 +118,31 @@ pre{background:var(--code-bg); padding:1rem; border-radius:10px; overflow:auto}
 table{border-collapse:collapse; width:100%; margin:1rem 0}
 th,td{border:1px solid var(--rule); padding:8px 10px; text-align:left}
 thead th{background:color-mix(in hsl, var(--bg) 90%, white 10%)}
+tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
 
 /* Images & figures */
 .content img{border-radius:12px; box-shadow: var(--shadow)}
 .content p img:first-child{margin-top:0.3rem}
+.content img{opacity:0; transform: translateY(4px); transition: opacity .3s ease, transform .3s ease}
+.content img.in{opacity:1; transform:none}
 
 /* Heading anchors */
 .anchor{margin-left:8px; opacity:0; color:var(--muted); font-size:0.8em}
 .content h1:hover .anchor,
 .content h2:hover .anchor,
 .content h3:hover .anchor{opacity:1}
+
+/* Stage directions */
+.stage{display:block; margin:0.6rem 0; padding:0.6rem 0.75rem; border-left:4px solid var(--rule); background: color-mix(in hsl, var(--bg) 98%, white 2%); border-radius:8px}
+.stage::before{content:"🎭"; margin-right:6px; opacity:0.75}
+
+/* Speaker badges */
+.line{display:block; margin:0.6rem 0}
+.badge{display:inline-block; font-size:0.75rem; font-weight:700; padding:2px 6px; border-radius:999px; margin-right:8px; vertical-align:middle}
+.role-human{background:#e6f0ff; color:#0b5bd3}
+.role-machine{background:#efe6ff; color:#6b21a8}
+.role-logos{background:#fff4d6; color:#b45309; font-variant: small-caps}
+.role-chorus{background:#e6fff6; color:#0f766e}
 
 /* Footer */
 .site-footer{border-top:1px solid var(--rule); margin-top:40px}
@@ -115,5 +151,27 @@ thead th{background:color-mix(in hsl, var(--bg) 90%, white 10%)}
 .site-footer .top{color:var(--muted)}
 .site-footer .top:hover{color:var(--fg)}
 
+/* Act chip */
+#act-chip{position:fixed; left:12px; top: calc(var(--header-h) + 8px); z-index: 9996; background: var(--chip-bg); border:1px solid var(--rule); color: var(--fg); padding:4px 8px; border-radius:999px; font-size:12px; letter-spacing:0.3px}
+@media (max-width: 960px){ #act-chip{left:auto; right:12px} }
+
+/* Underline animation & focus rings */
+.content a{background:
+  linear-gradient(currentColor, currentColor) bottom / 0 2px no-repeat;
+  transition: background-size .2s ease}
+.content a:hover{background-size: 100% 2px}
+*:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px}
+
+/* Subtle accent background at top */
+.site-main::before{content:""; position:fixed; left:0; right:0; top:0; height:32vh; pointer-events:none; background: linear-gradient(to bottom, color-mix(in hsl, var(--accent) 14%, transparent), transparent 65%); z-index:-1}
+
 /* Print */
 @media print{ .site-header, .toc, .site-footer, #progress{display:none!important} body{background:#fff; color:#000} }
+
+/* Enhancements */
+.toc-title{font-weight:600; margin-bottom:8px}
+.toc .toc-toggle-all{margin-bottom:8px}
+#toc-toggle{display:inline-block}
+@media (min-width: 961px){ #toc-toggle{ display:none } }
+.stage::before{content:"◆"; margin-right:6px; opacity:0.6; color:var(--muted)}
+.page-meta{color:var(--muted); font-size:0.9rem; display:flex; gap:12px; margin:0.25rem 0 1rem}
