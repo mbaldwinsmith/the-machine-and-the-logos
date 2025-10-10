@@ -24,11 +24,10 @@ The Machine and the Logos is a lyrical three‑act play about creation, intellig
 
 ## Read & Perform
 
-- Read the full script: [index.md](/)  
+- Read the full script: [homepage]({{ '/' | relative_url }})  
 - See staging and music advice: [Performance Notes](/performance-notes/)
 
 ## License
 
 © {{ site.time | date: '%Y' }} Mark Baldwin‑Smith & ChatGPT.  
 Non‑commercial sharing and performance permitted with attribution. For commercial or published productions, please contact Mark Baldwin‑Smith.
-
