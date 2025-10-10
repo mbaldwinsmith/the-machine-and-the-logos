@@ -76,6 +76,18 @@
       });
     })();
 
+    // Measure header height and expose CSS var
+    (function(){
+      const header = document.querySelector('.site-header');
+      function update(){
+        const h = (header ? header.offsetHeight : 56) + 3; // include progress bar
+        document.documentElement.style.setProperty('--header-h', h + 'px');
+      }
+      window.addEventListener('load', update);
+      window.addEventListener('resize', update);
+      update();
+    })();
+
     // Build on-page ToC from headings (h1–h3)
     (function(){
       const container = document.getElementById('toc');
@@ -101,14 +113,21 @@
       // Highlight active section
       const links = Array.from(list.querySelectorAll('a'));
       const map = new Map(links.map(l => [l.getAttribute('href').slice(1), l]));
+      function getHeaderH(){
+        const v = getComputedStyle(document.documentElement).getPropertyValue('--header-h').trim();
+        return parseInt(v || '64', 10) || 64;
+      }
       const obs = new IntersectionObserver(entries => {
         let activeId = null;
         entries.forEach(e => { if (e.isIntersecting) activeId = e.target.id; });
         if (activeId && map.has(activeId)) {
           links.forEach(l => l.classList.remove('active'));
-          map.get(activeId).classList.add('active');
+          const activeLink = map.get(activeId);
+          activeLink.classList.add('active');
+          // Keep active link visible within scrollable ToC
+          activeLink.scrollIntoView({ block: 'nearest' });
         }
-      }, { rootMargin: '0px 0px -70% 0px', threshold: [0, 1] });
+      }, { rootMargin: `-${getHeaderH()+6}px 0px -60% 0px`, threshold: [0, 1] });
       heads.forEach(h => obs.observe(h));
     })();
 
