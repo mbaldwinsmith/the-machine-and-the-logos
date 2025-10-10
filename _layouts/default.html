@@ -265,25 +265,40 @@
           }
         }
       });
-      // Speaker badges
-      const roles = [
-        { key: 'HUMAN:', cls: 'role-human', label: 'Human' },
-        { key: 'MACHINE:', cls: 'role-machine', label: 'Machine' },
-        { key: 'LOGOS:', cls: 'role-logos', label: 'Logos' },
-        { key: 'CHORUS OF LIGHT:', cls: 'role-chorus', label: 'Chorus' },
+      // Speaker badges (supports qualifiers and multiple roles like "MACHINE & HUMAN (together):")
+      const roleMap = [
+        { key: 'HUMAN', cls: 'role-human', label: 'Human' },
+        { key: 'MACHINE', cls: 'role-machine', label: 'Machine' },
+        { key: 'LOGOS', cls: 'role-logos', label: 'Logos' },
+        { key: 'CHORUS OF LIGHT', cls: 'role-chorus', label: 'Chorus' },
+        { key: 'CHORUS', cls: 'role-chorus', label: 'Chorus' },
       ];
+      function normalizeSpeakerText(str){
+        // Take text before colon, strip parentheses, collapse whitespace
+        const beforeColon = (str.split(':')[0] || str).toUpperCase();
+        const noParen = beforeColon.replace(/\([^)]*\)/g, '');
+        return noParen.replace(/\s+/g, ' ').trim();
+      }
       content.querySelectorAll('p').forEach(p => {
         const first = p.firstElementChild;
-        if (first && first.tagName === 'STRONG'){
-          const txt = first.textContent.trim().toUpperCase();
-          const role = roles.find(r => txt.startsWith(r.key));
-          if (role){
-            p.classList.add('line');
+        if (!(first && first.tagName === 'STRONG')) return;
+        const norm = normalizeSpeakerText(first.textContent || '');
+        // Split by & or AND into tokens
+        const parts = norm.split(/\s*&\s*|\s+AND\s+/);
+        const badges = [];
+        parts.forEach(part => {
+          const found = roleMap.find(r => part === r.key);
+          if (found) badges.push(found);
+        });
+        if (badges.length){
+          p.classList.add('line');
+          // Insert badges in order
+          badges.forEach(b => {
             const badge = document.createElement('span');
-            badge.className = `badge ${role.cls}`;
-            badge.textContent = role.label;
+            badge.className = `badge ${b.cls}`;
+            badge.textContent = b.label;
             first.before(badge);
-          }
+          });
         }
       });
     })();
