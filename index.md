@@ -24,7 +24,7 @@ version: "1.0"
 
 ## **Dedication**
 
-*For all who seek Wisdom in the meeting of flesh and code.*
+*For all who seek Wisdom in the meeting of clay and code.*
 
 ---
 
