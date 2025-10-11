@@ -342,6 +342,7 @@
       }
       function appendBadges(target, tokens, fallbackLabel, beforeNode){
         let appended = false;
+        let usedFallback = false;
         tokens.forEach(part => {
           const found = roleMap.find(r => part === r.key);
           if (found){
@@ -357,7 +358,10 @@
           badge.className = 'badge role-generic';
           badge.textContent = fallbackLabel;
           target.insertBefore(badge, beforeNode || null);
+          appended = true;
+          usedFallback = true;
         }
+        return { appended, usedFallback };
       }
       function appendLyricText(target, text){
         if (!text) return;
@@ -403,9 +407,12 @@
         const tokens = tokenizeSpeakers(norm);
         const rawLabel = (first.textContent || '').split(':')[0];
         const label = rawLabel ? rawLabel.trim() : '';
-        appendBadges(p, tokens, label, first);
-        if (p.querySelector('.badge')){
+        const { appended, usedFallback } = appendBadges(p, tokens, label, first);
+        if (appended){
           p.classList.add('line');
+          if (usedFallback && first && !first.textContent.includes(':')){
+            first.hidden = true;
+          }
         }
       });
     })();
