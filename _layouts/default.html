@@ -329,6 +329,7 @@
         { key: 'LOGOS', cls: 'role-logos', label: 'Logos' },
         { key: 'CHORUS OF LIGHT', cls: 'role-chorus', label: 'Chorus' },
         { key: 'CHORUS', cls: 'role-chorus', label: 'Chorus' },
+        { key: 'ALL', cls: 'role-all', label: 'All' },
       ];
       function normalizeSpeakerText(str){
         // Take text before colon, strip parentheses, collapse whitespace
@@ -336,26 +337,99 @@
         const noParen = beforeColon.replace(/\([^)]*\)/g, '');
         return noParen.replace(/\s+/g, ' ').trim();
       }
+      function tokenizeSpeakers(str){
+        return str.split(/\s*&\s*|\s+AND\s+/).map(part => part.trim().toUpperCase()).filter(Boolean);
+      }
+      function appendBadges(target, tokens, fallbackLabel, beforeNode){
+        let appended = false;
+        tokens.forEach(part => {
+          const found = roleMap.find(r => part === r.key);
+          if (found){
+            const badge = document.createElement('span');
+            badge.className = `badge ${found.cls}`;
+            badge.textContent = found.label;
+            target.insertBefore(badge, beforeNode || null);
+            appended = true;
+          }
+        });
+        if (!appended && fallbackLabel){
+          const badge = document.createElement('span');
+          badge.className = 'badge role-generic';
+          badge.textContent = fallbackLabel;
+          target.insertBefore(badge, beforeNode || null);
+        }
+      }
+      function appendLyricText(target, text){
+        if (!text) return;
+        const parts = text.split(/(`[^`]*`)/);
+        parts.forEach(part => {
+          if (!part) return;
+          if (part.startsWith('`') && part.endsWith('`')){
+            const code = document.createElement('code');
+            code.textContent = part.slice(1, -1);
+            target.appendChild(code);
+          } else {
+            target.appendChild(document.createTextNode(part));
+          }
+        });
+      }
+      let hasLyrics = false;
+      content.querySelectorAll('.lyrics').forEach(block => {
+        if (block.dataset.enhanced === 'true') return;
+        const lines = block.textContent.split(/\n+/).map(line => line.trim()).filter(Boolean);
+        if (!lines.length) return;
+        block.dataset.rawLyrics = lines.join('\n');
+        block.innerHTML = '';
+        lines.forEach(line => {
+          const p = document.createElement('p');
+          p.className = 'line lyric-line';
+          const match = line.match(/^\[([^\]]+)\]\s*(.*)$/);
+          let text = line;
+          if (match){
+            const speakerRaw = match[1];
+            text = match[2];
+            const tokens = tokenizeSpeakers(normalizeSpeakerText(speakerRaw));
+            appendBadges(p, tokens, speakerRaw.trim());
+          }
+          const span = document.createElement('span');
+          span.className = 'lyric-text';
+          appendLyricText(span, text);
+          p.appendChild(span);
+          block.appendChild(p);
+        });
+        block.dataset.enhanced = 'true';
+        hasLyrics = true;
+      });
+      if (hasLyrics){
+        document.addEventListener('copy', event => {
+          const selection = window.getSelection();
+          if (!selection || selection.rangeCount === 0) return;
+          const anchorNode = selection.anchorNode;
+          const focusNode = selection.focusNode;
+          if (!anchorNode || !focusNode) return;
+          const anchorElem = (anchorNode.nodeType === Node.ELEMENT_NODE ? anchorNode : anchorNode.parentElement);
+          const focusElem = (focusNode.nodeType === Node.ELEMENT_NODE ? focusNode : focusNode.parentElement);
+          if (!anchorElem || !focusElem) return;
+          const anchorBlock = anchorElem.closest('.lyrics');
+          const focusBlock = focusElem.closest('.lyrics');
+          if (!anchorBlock || anchorBlock !== focusBlock) return;
+          const text = anchorBlock.dataset.rawLyrics;
+          if (!text) return;
+          event.preventDefault();
+          event.clipboardData.setData('text/plain', text);
+        });
+      }
       content.querySelectorAll('p').forEach(p => {
         const first = p.firstElementChild;
         if (!(first && first.tagName === 'STRONG')) return;
         const norm = normalizeSpeakerText(first.textContent || '');
-        // Split by & or AND into tokens
-        const parts = norm.split(/\s*&\s*|\s+AND\s+/);
-        const badges = [];
-        parts.forEach(part => {
-          const found = roleMap.find(r => part === r.key);
-          if (found) badges.push(found);
-        });
-        if (badges.length){
+        if (norm === 'LYRICS') return;
+        const tokens = tokenizeSpeakers(norm);
+        const rawLabel = (first.textContent || '').split(':')[0];
+        const label = rawLabel ? rawLabel.trim() : '';
+        appendBadges(p, tokens, label, first);
+        if (p.querySelector('.badge')){
           p.classList.add('line');
-          // Insert badges in order
-          badges.forEach(b => {
-            const badge = document.createElement('span');
-            badge.className = `badge ${b.cls}`;
-            badge.textContent = b.label;
-            first.before(badge);
-          });
         }
       });
     })();
