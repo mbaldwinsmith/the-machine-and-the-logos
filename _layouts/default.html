@@ -373,12 +373,9 @@
           }
         });
       }
-      let hasLyrics = false;
       content.querySelectorAll('.lyrics').forEach(block => {
         if (block.dataset.enhanced === 'true') return;
         const lines = block.textContent.split(/\n+/).map(line => line.trim()).filter(Boolean);
-        if (!lines.length) return;
-        block.dataset.rawLyrics = lines.join('\n');
         block.innerHTML = '';
         lines.forEach(line => {
           const p = document.createElement('p');
@@ -398,32 +395,11 @@
           block.appendChild(p);
         });
         block.dataset.enhanced = 'true';
-        hasLyrics = true;
       });
-      if (hasLyrics){
-        document.addEventListener('copy', event => {
-          const selection = window.getSelection();
-          if (!selection || selection.rangeCount === 0) return;
-          const anchorNode = selection.anchorNode;
-          const focusNode = selection.focusNode;
-          if (!anchorNode || !focusNode) return;
-          const anchorElem = (anchorNode.nodeType === Node.ELEMENT_NODE ? anchorNode : anchorNode.parentElement);
-          const focusElem = (focusNode.nodeType === Node.ELEMENT_NODE ? focusNode : focusNode.parentElement);
-          if (!anchorElem || !focusElem) return;
-          const anchorBlock = anchorElem.closest('.lyrics');
-          const focusBlock = focusElem.closest('.lyrics');
-          if (!anchorBlock || anchorBlock !== focusBlock) return;
-          const text = anchorBlock.dataset.rawLyrics;
-          if (!text) return;
-          event.preventDefault();
-          event.clipboardData.setData('text/plain', text);
-        });
-      }
       content.querySelectorAll('p').forEach(p => {
         const first = p.firstElementChild;
         if (!(first && first.tagName === 'STRONG')) return;
         const norm = normalizeSpeakerText(first.textContent || '');
-        if (norm === 'LYRICS') return;
         const tokens = tokenizeSpeakers(norm);
         const rawLabel = (first.textContent || '').split(':')[0];
         const label = rawLabel ? rawLabel.trim() : '';
