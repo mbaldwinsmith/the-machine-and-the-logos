@@ -342,6 +342,7 @@
       }
       function appendBadges(target, tokens, fallbackLabel, beforeNode){
         let appended = false;
+        let usedFallback = false;
         tokens.forEach(part => {
           const found = roleMap.find(r => part === r.key);
           if (found){
@@ -357,7 +358,22 @@
           badge.className = 'badge role-generic';
           badge.textContent = fallbackLabel;
           target.insertBefore(badge, beforeNode || null);
+          appended = true;
+          usedFallback = true;
         }
+        return { appended, usedFallback };
+      }
+      function collectDirections(str){
+        return (str.match(/\([^)]*\)/g) || []).map(part => part.trim());
+      }
+      function insertDirections(target, directions, beforeNode, suffix){
+        if (!directions.length) return null;
+        const dirSpan = document.createElement('span');
+        dirSpan.className = 'line-direction';
+        const joined = directions.join(' ');
+        dirSpan.textContent = ` ${joined}${suffix || ''}`;
+        target.insertBefore(dirSpan, beforeNode || null);
+        return dirSpan;
       }
       function appendLyricText(target, text){
         if (!text) return;
@@ -386,7 +402,9 @@
             const speakerRaw = match[1];
             text = match[2];
             const tokens = tokenizeSpeakers(normalizeSpeakerText(speakerRaw));
+            const directions = collectDirections(speakerRaw);
             appendBadges(p, tokens, speakerRaw.trim());
+            insertDirections(p, directions, null, '');
           }
           const span = document.createElement('span');
           span.className = 'lyric-text';
@@ -403,9 +421,20 @@
         const tokens = tokenizeSpeakers(norm);
         const rawLabel = (first.textContent || '').split(':')[0];
         const label = rawLabel ? rawLabel.trim() : '';
-        appendBadges(p, tokens, label, first);
-        if (p.querySelector('.badge')){
+        const { appended, usedFallback } = appendBadges(p, tokens, label, first);
+        if (appended){
           p.classList.add('line');
+          if (first){
+            const text = first.textContent || '';
+            const colonIndex = text.indexOf(':');
+            const beforeColon = colonIndex >= 0 ? text.slice(0, colonIndex) : text;
+            const directionMatches = collectDirections(beforeColon);
+            const suffix = colonIndex >= 0 ? ':' : '';
+            insertDirections(p, directionMatches, first.nextSibling, suffix);
+            if (colonIndex >= 0 || (usedFallback && colonIndex < 0)){
+              first.hidden = true;
+            }
+          }
         }
       });
     })();

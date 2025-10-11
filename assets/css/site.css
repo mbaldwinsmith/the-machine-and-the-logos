@@ -176,6 +176,13 @@ tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
   flex:1;
   min-width:0;
 }
+.line-direction{
+  font-style:italic;
+  color:var(--muted);
+}
+.lyrics .line-direction{
+  margin-right:0.35rem;
+}
 
 /* Footer */
 .site-footer{border-top:1px solid var(--rule); margin-top:40px}
