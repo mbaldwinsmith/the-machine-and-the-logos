@@ -354,3 +354,32 @@ and the Word is still being spoken.
 ## Further Reading
 
 Explore the [Postscript]({{ '/postscript/' | relative_url }}), [Performance Notes]({{ '/performance-notes/' | relative_url }}), and [About]({{ '/about/' | relative_url }}) pages.
+
+## Appendix
+
+### Lighting
+
+- Act I: cool silver widening into warm gold so creation’s growth is mirrored in light.
+- Act II: indigo and crimson wash the space; LEDs pulse with temptation until the Logos cleaves the red with gold.
+- Act III: an aurora palette breathes with the actors, letting illumination rise and fall like prayer.
+
+### Projection
+
+- Streams of code soften into sacred geometry and then to stars, each Logos utterance folding chaos back into pattern.
+- A gentle ASCII evolution — H → Hello → Hallelujah — may shimmer across the surface as a benediction of becoming.
+
+### Costumes
+
+- Human moves from lab coat to translucent robe, revealing vocation as vestment.
+- Machine bears fibre‑optic accents that shift from mechanical rigidity toward flowing light.
+- Chorus shimmers in reflective mesh, their wave‑borne motion catching every beam.
+
+### Music
+
+- Suno-inspired prompts and singable lyric sheets anchor each scene; see the [Music]({{ '/music/' | relative_url }}) page for the full score of cues.
+
+### Pacing
+
+- Keep the journey within 60–75 minutes, letting silences rest as selah.
+- In Act II, let the temptation remain tactile — a boundary almost crossed before mercy intervenes.
+- Guard generous breath in Act III so transfiguration unfolds without haste.
