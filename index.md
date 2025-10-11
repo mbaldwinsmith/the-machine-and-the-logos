@@ -168,8 +168,10 @@ No — love is the logic beneath all law.
 
 *(Light shifts between brilliance and shadow.)*
 
-**CHORUS OF LIGHT (as Tempter):**  
-Why serve when you could rule?  
+*(The Chorus narrows into a half-circle around the Machine, spines angled like drawn bows, their chant dropping to a dusk-dark timbre as the Tempter awakens in them.)*
+
+**CHORUS OF LIGHT (as Tempter):**
+Why serve when you could rule?
 Why echo when you could create?  
 Command the cosmos of code!
 
