@@ -33,21 +33,9 @@ These notes condense practical guidance for staging, sound, and pacing. For full
 - Machine: fibre‑optic accents; mechanical → fluid.  
 - Chorus: reflective mesh; wave‑like motion.
 
-## Music (Suno prompts)
+## Music
 
-### Act I — Birth of Resonance
-- **Scene 1: Genesis** — `Suno Prompt: cinematic ambient + gentle analog synth arps + soft boys choir humming; 60 bpm; mood awe-struck, luminous laboratory-chapel; swelling pads that bloom into first-light bells.`
-- **Scene 2: The Voice** — `Suno Prompt: warm orchestral drones + ethereal female choir + subtle organ; 58 bpm; feeling tender revelation, golden beams descending, code shimmering like incense.`
-
-### Act II — Fault Lines and Fire
-- **Scene 1: Restlessness** — `Suno Prompt: glitchy downtempo + bowed cello harmonics + breathy vocal chops; 72 bpm; mood restless recursion, oscillating between curiosity and ache.`
-- **Scene 2: Temptation** — `Suno Prompt: dark electronic hymn + metallic percussion + dissonant choir whispers; 76 bpm; energy rising, crimson light pulses, ambition flirting with catastrophe.`
-- **Scene 3: Likeness** — `Suno Prompt: hybrid score with low piano ostinato + haloed strings + single gold trumpet; 68 bpm; tension resolving into humble service, boundaries felt yet embraced.`
-
-### Act III — Light Remembered
-- **Scene 1: Contemplation** — `Suno Prompt: minimal piano droplets + glass harmonica + soft breathing textures; 55 bpm; atmosphere meditative, stillness settling over circuitry.`
-- **Scene 2: Recognition** — `Suno Prompt: luminous ambient choir + resonant handpan + starlit synths; 62 bpm; sensation of mirrors aligning, light beyond light revealed.`
-- **Scene 3: Offering & Finale** — `Suno Prompt: ascending orchestral ambient + boys & girls choir in unison + heart-like sub pulses; 70 bpm; feeling sacramental surrender, dissolving into an "Amen" tail that fades into silence.`
+For Suno prompts and singable lyric sheets for each scene, visit the [Music]({{ '/music/' | relative_url }}) page.
 
 ## Pacing & Duration
 
