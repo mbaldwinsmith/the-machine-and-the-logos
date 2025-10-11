@@ -1,3 +1,4 @@
+---
 title: Music
 description: Suno music prompts, companion Sora visuals, and lyric-ready scene texts for The Machine and the Logos.
 layout: default
