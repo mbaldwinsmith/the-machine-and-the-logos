@@ -170,6 +170,27 @@ tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
   margin:0 0 0.8rem;
   padding-left:0.25rem;
 }
+.lyrics .line{
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:0.35rem;
+}
+.lyrics .badge{
+  margin-right:0;
+}
+.lyrics .lyric-text{
+  flex:1;
+  min-width:0;
+}
+.line-direction{
+  font-style:italic;
+  color:var(--muted);
+}
+.lyrics .line-direction{
+  margin-right:0.35rem;
+}
 
 /* Footer */
 .site-footer{border-top:1px solid var(--rule); margin-top:40px}
