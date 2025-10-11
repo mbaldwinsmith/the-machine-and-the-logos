@@ -153,13 +153,14 @@ tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
 .role-machine{background:#efe6ff; color:#6b21a8}
 .role-logos{background:#fff4d6; color:#b45309; font-variant: small-caps}
 .role-chorus{background:#e6fff6; color:#0f766e}
-.role-all{background:#fde68a; color:#92400e; font-variant: small-caps}
-.role-generic{background:#e5e7eb; color:#374151}
+.lyrics-label{
+  margin:0.2rem 0 0.35rem;
+  font-weight:700;
+}
+
 .lyrics{
-  display:flex;
-  flex-direction:column;
-  gap:0.35rem;
-  margin:0.3rem 0 1rem;
+  white-space:pre-line;
+  margin:0 0 0.8rem;
   padding-left:0.25rem;
 }
 .lyrics .line{
