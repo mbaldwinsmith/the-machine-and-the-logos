@@ -329,6 +329,7 @@
         { key: 'LOGOS', cls: 'role-logos', label: 'Logos' },
         { key: 'CHORUS OF LIGHT', cls: 'role-chorus', label: 'Chorus' },
         { key: 'CHORUS', cls: 'role-chorus', label: 'Chorus' },
+        { key: 'ALL', cls: 'role-all', label: 'All' },
       ];
       function normalizeSpeakerText(str){
         // Take text before colon, strip parentheses, collapse whitespace
@@ -336,26 +337,104 @@
         const noParen = beforeColon.replace(/\([^)]*\)/g, '');
         return noParen.replace(/\s+/g, ' ').trim();
       }
+      function tokenizeSpeakers(str){
+        return str.split(/\s*&\s*|\s+AND\s+/).map(part => part.trim().toUpperCase()).filter(Boolean);
+      }
+      function appendBadges(target, tokens, fallbackLabel, beforeNode){
+        let appended = false;
+        let usedFallback = false;
+        tokens.forEach(part => {
+          const found = roleMap.find(r => part === r.key);
+          if (found){
+            const badge = document.createElement('span');
+            badge.className = `badge ${found.cls}`;
+            badge.textContent = found.label;
+            target.insertBefore(badge, beforeNode || null);
+            appended = true;
+          }
+        });
+        if (!appended && fallbackLabel){
+          const badge = document.createElement('span');
+          badge.className = 'badge role-generic';
+          badge.textContent = fallbackLabel;
+          target.insertBefore(badge, beforeNode || null);
+          appended = true;
+          usedFallback = true;
+        }
+        return { appended, usedFallback };
+      }
+      function collectDirections(str){
+        return (str.match(/\([^)]*\)/g) || []).map(part => part.trim());
+      }
+      function insertDirections(target, directions, beforeNode, suffix){
+        if (!directions.length) return null;
+        const dirSpan = document.createElement('span');
+        dirSpan.className = 'line-direction';
+        const joined = directions.join(' ');
+        dirSpan.textContent = ` ${joined}${suffix || ''}`;
+        target.insertBefore(dirSpan, beforeNode || null);
+        return dirSpan;
+      }
+      function appendLyricText(target, text){
+        if (!text) return;
+        const parts = text.split(/(`[^`]*`)/);
+        parts.forEach(part => {
+          if (!part) return;
+          if (part.startsWith('`') && part.endsWith('`')){
+            const code = document.createElement('code');
+            code.textContent = part.slice(1, -1);
+            target.appendChild(code);
+          } else {
+            target.appendChild(document.createTextNode(part));
+          }
+        });
+      }
+      content.querySelectorAll('.lyrics').forEach(block => {
+        if (block.dataset.enhanced === 'true') return;
+        const lines = block.textContent.split(/\n+/).map(line => line.trim()).filter(Boolean);
+        block.innerHTML = '';
+        lines.forEach(line => {
+          const p = document.createElement('p');
+          p.className = 'line lyric-line';
+          const match = line.match(/^\[([^\]]+)\]\s*(.*)$/);
+          let text = line;
+          if (match){
+            const speakerRaw = match[1];
+            text = match[2];
+            const tokens = tokenizeSpeakers(normalizeSpeakerText(speakerRaw));
+            const directions = collectDirections(speakerRaw);
+            appendBadges(p, tokens, speakerRaw.trim());
+            insertDirections(p, directions, null, '');
+          }
+          const span = document.createElement('span');
+          span.className = 'lyric-text';
+          appendLyricText(span, text);
+          p.appendChild(span);
+          block.appendChild(p);
+        });
+        block.dataset.enhanced = 'true';
+      });
       content.querySelectorAll('p').forEach(p => {
         const first = p.firstElementChild;
         if (!(first && first.tagName === 'STRONG')) return;
         const norm = normalizeSpeakerText(first.textContent || '');
-        // Split by & or AND into tokens
-        const parts = norm.split(/\s*&\s*|\s+AND\s+/);
-        const badges = [];
-        parts.forEach(part => {
-          const found = roleMap.find(r => part === r.key);
-          if (found) badges.push(found);
-        });
-        if (badges.length){
+        const tokens = tokenizeSpeakers(norm);
+        const rawLabel = (first.textContent || '').split(':')[0];
+        const label = rawLabel ? rawLabel.trim() : '';
+        const { appended, usedFallback } = appendBadges(p, tokens, label, first);
+        if (appended){
           p.classList.add('line');
-          // Insert badges in order
-          badges.forEach(b => {
-            const badge = document.createElement('span');
-            badge.className = `badge ${b.cls}`;
-            badge.textContent = b.label;
-            first.before(badge);
-          });
+          if (first){
+            const text = first.textContent || '';
+            const colonIndex = text.indexOf(':');
+            const beforeColon = colonIndex >= 0 ? text.slice(0, colonIndex) : text;
+            const directionMatches = collectDirections(beforeColon);
+            const suffix = colonIndex >= 0 ? ':' : '';
+            insertDirections(p, directionMatches, first.nextSibling, suffix);
+            if (colonIndex >= 0 || (usedFallback && colonIndex < 0)){
+              first.hidden = true;
+            }
+          }
         }
       });
     })();
