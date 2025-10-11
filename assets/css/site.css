@@ -153,6 +153,11 @@ tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
 .role-machine{background:#efe6ff; color:#6b21a8}
 .role-logos{background:#fff4d6; color:#b45309; font-variant: small-caps}
 .role-chorus{background:#e6fff6; color:#0f766e}
+.lyrics{
+  white-space:pre-line;
+  margin:0.8rem 0;
+  padding-left:0.25rem;
+}
 
 /* Footer */
 .site-footer{border-top:1px solid var(--rule); margin-top:40px}
