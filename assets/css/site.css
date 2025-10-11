@@ -154,8 +154,15 @@ tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
 .role-logos{background:#fff4d6; color:#b45309; font-variant: small-caps}
 .role-chorus{background:#e6fff6; color:#0f766e}
 .lyrics-label{
-  margin:0.2rem 0 0.35rem;
+  display:inline-block;
+  margin:0.25rem 0 0.45rem;
+  padding:2px 10px;
+  background:color-mix(in hsl, var(--accent) 18%, var(--bg) 82%);
+  color:var(--accent);
+  border-radius:999px;
+  font-size:0.8rem;
   font-weight:700;
+  letter-spacing:0.02em;
 }
 
 .lyrics{
