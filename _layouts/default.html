@@ -410,22 +410,8 @@
         const { appended, usedFallback } = appendBadges(p, tokens, label, first);
         if (appended){
           p.classList.add('line');
-          if (first){
-            const text = first.textContent || '';
-            const colonIndex = text.indexOf(':');
-            const beforeColon = colonIndex >= 0 ? text.slice(0, colonIndex) : text;
-            const directionMatches = beforeColon.match(/\([^)]*\)/g) || [];
-            if (directionMatches.length){
-              const dirSpan = document.createElement('span');
-              dirSpan.className = 'line-direction';
-              const joined = directionMatches.map(part => part.trim()).join(' ');
-              const suffix = colonIndex >= 0 ? ':' : '';
-              dirSpan.textContent = ` ${joined}${suffix}`;
-              first.insertAdjacentElement('afterend', dirSpan);
-            }
-            if (colonIndex >= 0 || (usedFallback && colonIndex < 0)){
-              first.hidden = true;
-            }
+          if (usedFallback && first && !first.textContent.includes(':')){
+            first.hidden = true;
           }
         }
       });
