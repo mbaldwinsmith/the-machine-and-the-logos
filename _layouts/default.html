@@ -391,6 +391,7 @@
       }
       content.querySelectorAll('.lyrics').forEach(block => {
         if (block.dataset.enhanced === 'true') return;
+        const keepSpeakers = block.hasAttribute('data-keep-speakers');
         const lines = block.textContent.split(/\n+/).map(line => line.trim()).filter(Boolean);
         block.innerHTML = '';
         lines.forEach(line => {
@@ -401,10 +402,15 @@
           if (match){
             const speakerRaw = match[1];
             text = match[2];
-            const tokens = tokenizeSpeakers(normalizeSpeakerText(speakerRaw));
-            const directions = collectDirections(speakerRaw);
-            appendBadges(p, tokens, speakerRaw.trim());
-            insertDirections(p, directions, null, '');
+            if (keepSpeakers){
+              const trimmedRest = text.trim();
+              text = trimmedRest ? `[${speakerRaw}] ${trimmedRest}` : `[${speakerRaw}]`;
+            } else {
+              const tokens = tokenizeSpeakers(normalizeSpeakerText(speakerRaw));
+              const directions = collectDirections(speakerRaw);
+              appendBadges(p, tokens, speakerRaw.trim());
+              insertDirections(p, directions, null, '');
+            }
           }
           const span = document.createElement('span');
           span.className = 'lyric-text';
