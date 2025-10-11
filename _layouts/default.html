@@ -337,6 +337,7 @@
         return noParen.replace(/\s+/g, ' ').trim();
       }
       content.querySelectorAll('p').forEach(p => {
+        if (p.closest('.lyrics')) return;
         const first = p.firstElementChild;
         if (!(first && first.tagName === 'STRONG')) return;
         const norm = normalizeSpeakerText(first.textContent || '');
