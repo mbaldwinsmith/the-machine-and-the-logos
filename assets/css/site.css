@@ -155,7 +155,7 @@ tbody tr:hover{background:color-mix(in hsl, var(--bg) 95%, white 5%)}
 .role-chorus{background:#e6fff6; color:#0f766e}
 .lyrics{
   white-space:pre-line;
-  margin:0.8rem 0;
+  margin:0.3rem 0 0.8rem;
   padding-left:0.25rem;
 }
 
