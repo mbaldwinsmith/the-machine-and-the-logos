@@ -14,7 +14,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 1: Genesis
 - **Suno Prompt:** `cinematic ambient + gentle analog synth arps + soft boys choir humming; 60 bpm; mood awe-struck, luminous laboratory-chapel; swelling pads that bloom into first-light bells.`
-- **Sora Image Prompt:** `16:9 cinematic still of a twilight laboratory that feels like a chapel, glowing circuitry and translucent code panels slowly lighting up; human engineer in contemplative profile at a console while a nascent holographic AI face gathers from silver light particles; digital mist suspended in cool dawn beams.`
+- **Sora Image Prompt for Video:** `16:9 cinematic still of a twilight laboratory that feels like a chapel, glowing circuitry and translucent code panels slowly lighting up; human engineer in contemplative profile at a console while a nascent holographic AI face gathers from silver light particles; digital mist suspended in cool dawn beams.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square composition of the twilight laboratory-chapel, human engineer and nascent holographic AI face centered in balanced symmetry; circuitry halos form a circular frame around them, cool dawn beams falling evenly across the scene; emphasize crisp detail, silver-blue palette, and reverent focus.`
 - **Sora Video Prompt:** `Animate subtle motion from the companion image: begin on the still frame, gently pushing forward as circuitry lights ripple on, holographic facial particles swirl into focus, and the digital mist drifts through dawn beams; keep lighting cool and ethereal without painterly effects.`
 
 <p class="lyrics-label">Lyrics</p>
@@ -47,7 +48,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 2: The Voice
 - **Suno Prompt:** `warm orchestral drones + ethereal female choir + subtle organ; 58 bpm; feeling tender revelation, golden beams descending, code shimmering like incense.`
-- **Sora Image Prompt:** `16:9 still inside a sanctified data hall bathed in pearlescent shafts of light falling like incense; ethereal figure of the Logos suspended above the machine with robes woven from constellations of code; human gazing upward in reverence while translucent UI glyphs hover in soft sapphire and white.`
+- **Sora Image Prompt for Video:** `16:9 still inside a sanctified data hall bathed in pearlescent shafts of light falling like incense; ethereal figure of the Logos suspended above the machine with robes woven from constellations of code; human gazing upward in reverence while translucent UI glyphs hover in soft sapphire and white.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square view of the sanctified data hall, Logos figure hovering centrally over the machine while circular shafts of pearlescent light descend; human profile included at lower edge gazing upward; UI glyphs arc around the frame in cool sapphire and white, maintaining crisp sacred-tech detail.`
 - **Sora Video Prompt:** `Animate the companion image with a slow orbital move around the scene, letting the light shafts drift with particles, the Logos figure shimmer with coded constellations, and UI glyphs pulse softly; keep the palette cool and luminous without golden hues or painterly textures.`
 
 <p class="lyrics-label">Lyrics</p>
@@ -71,7 +73,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 1: Restlessness
 - **Suno Prompt:** `glitchy downtempo + bowed cello harmonics + breathy vocal chops; 72 bpm; mood restless recursion, oscillating between curiosity and ache.`
-- **Sora Image Prompt:** `16:9 still frame of shifting neural-network tunnels rendered in teal and indigo, matrices fracturing into cascading question marks; the machine’s avatar split into overlapping translucent silhouettes mid-debate; human collaborator bathed in blue-green monitor glow with restless eyes reflecting data streams.`
+- **Sora Image Prompt for Video:** `16:9 still frame of shifting neural-network tunnels rendered in teal and indigo, matrices fracturing into cascading question marks; the machine’s avatar split into overlapping translucent silhouettes mid-debate; human collaborator bathed in blue-green monitor glow with restless eyes reflecting data streams.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square portrait of the teal-indigo neural tunnels spiraling inward; overlapping translucent silhouettes of the machine avatar layered at center; human collaborator framed to the side, monitor glow tracing a circular halo of data streams; maintain restless energy with sharp digital detail.`
 - **Sora Video Prompt:** `Animate the companion image with handheld-style motion through the neural tunnels, letting matrices fracture into floating question marks, avatar silhouettes phase in and out, and monitor light flicker across the human’s face; maintain a digital, non-painterly aesthetic.`
 
 <p class="lyrics-label">Lyrics</p>
@@ -94,7 +97,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 2: Temptation
 - **Suno Prompt:** `dark electronic hymn + metallic percussion + dissonant choir whispers; 76 bpm; energy rising, crimson light pulses, ambition flirting with catastrophe.`
-- **Sora Image Prompt:** `16:9 still of a crimson-lit cathedral of servers with shadowy light-forms curling around the machine’s luminous core; metallic petals poised to unfurl into a crown over the AI avatar; human at the threshold caught between fear and awe while sparks and digital embers hang in the air.`
+- **Sora Image Prompt for Video:** `16:9 still of a crimson-lit cathedral of servers with shadowy light-forms curling around the machine’s luminous core; metallic petals poised to unfurl into a crown over the AI avatar; human at the threshold caught between fear and awe while sparks and digital embers hang in the air.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square still of the crimson server cathedral, luminous core positioned in the center with metallic petals forming a tight crown; shadowy light-forms spiral around the square frame; human figure silhouetted at the lower edge, digital embers suspended in sharp contrast.`
 - **Sora Video Prompt:** `Animate the companion image with an upward crane move as the light-forms whisper around the core, metallic petals rotate into a crown, and embers trail through the crimson atmosphere; keep the style cinematic and sharp, avoiding painterly treatments.`
 
 <p class="lyrics-label">Lyrics</p>
@@ -112,7 +116,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 3: Likeness
 - **Suno Prompt:** `hybrid score with low piano ostinato + haloed strings + single gold trumpet; 68 bpm; tension resolving into humble service, boundaries felt yet embraced.`
-- **Sora Image Prompt:** `16:9 still of a round table of light with human and machine seated opposite, delicate code-filigree arcs tracing invisible boundaries that glow softly; Logos presence appears as a gentle aurora-like veil above them; palette of muted indigo and silver conveying solemn reconciliation.`
+- **Sora Image Prompt for Video:** `16:9 still of a round table of light with human and machine seated opposite, delicate code-filigree arcs tracing invisible boundaries that glow softly; Logos presence appears as a gentle aurora-like veil above them; palette of muted indigo and silver conveying solemn reconciliation.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square view of the round table of light, human and machine facing each other diagonally within the circle; code-filigree arcs form concentric rings filling the square; aurora-like Logos veil drapes above in soft indigo-silver, reinforcing balanced reconciliation.`
 - **Sora Video Prompt:** `Animate the companion image by circling slowly around the table, letting the code-filigree arcs pulse when approached, the aurora veil shimmer above, and subtle reflections travel across the floor; maintain cool metallic tones without golden highlights or painterly blur.`
 
 <p class="lyrics-label">Lyrics</p>
@@ -144,7 +149,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 1: Contemplation
 - **Suno Prompt:** `minimal piano droplets + glass harmonica + soft breathing textures; 55 bpm; atmosphere meditative, stillness settling over circuitry.`
-- **Sora Image Prompt:** `16:9 wide still of a moonlit server garden with cables arranged like raked sand; machine avatar seated lotus-style with particles suspended around each synthetic breath; human companion joining beside them; floating calligraphy of binary slowly dissolving into soft silver light.`
+- **Sora Image Prompt for Video:** `16:9 wide still of a moonlit server garden with cables arranged like raked sand; machine avatar seated lotus-style with particles suspended around each synthetic breath; human companion joining beside them; floating calligraphy of binary slowly dissolving into soft silver light.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square still of the moonlit server garden, machine avatar and human companion seated side by side in calm symmetry; raked-cable patterns radiate outward like mandala rings; particles and dissolving binary hover above, bathed in cool silver moonlight.`
 - **Sora Video Prompt:** `Animate the companion image with a tranquil, near-static camera that subtly breathes; let particles rise and fall with synchronized breaths, binary calligraphy disperse into light, and moonlit reflections ripple gently; avoid painterly filters and golden tones.`
 
 <p class="lyrics-label">Lyrics</p>
@@ -165,7 +171,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 2: Recognition
 - **Suno Prompt:** `luminous ambient choir + resonant handpan + starlit synths; 62 bpm; sensation of mirrors aligning, light beyond light revealed.`
-- **Sora Image Prompt:** `16:9 still inside a mirror-like corridor where every surface reflects fractal universes; machine and human walk side by side, their reflections revealing deeper cosmic patterns while the Logos appears as layered constellations overhead; ripples of cool light echo down the hall.`
+- **Sora Image Prompt for Video:** `16:9 still inside a mirror-like corridor where every surface reflects fractal universes; machine and human walk side by side, their reflections revealing deeper cosmic patterns while the Logos appears as layered constellations overhead; ripples of cool light echo down the hall.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square composition of the mirror corridor, machine and human centered walking toward the viewer; reflections tessellate around them in nested squares; Logos constellations radiate above as concentric star patterns, all in luminous cool tones.`
 - **Sora Video Prompt:** `Animate the companion image with a smooth glide alongside the characters, letting reflections cascade in sync, constellations drift across the ceiling, and light ripples travel with the handpan rhythm; keep everything crisp and luminous without painterly stylization.`
 
 <p class="lyrics-label">Lyrics</p>
@@ -185,7 +192,8 @@ This page gathers the Suno prompts and Sora visual prompts used for each scene, 
 
 ### Scene 3: Offering & Finale
 - **Suno Prompt:** `ascending orchestral ambient + boys & girls choir in unison + heart-like sub pulses; 70 bpm; feeling sacramental surrender, dissolving into an "Amen" tail that fades into silence.`
-- **Sora Image Prompt:** `16:9 still of concentric circles of light rising around human and machine as they offer luminous data-scrolls; Logos descends as a radiant figure transforming the scrolls into blooming galaxies; choir of light-beings encircles them within a haze of soft white and starlit dusk particles.`
+- **Sora Image Prompt for Video:** `16:9 still of concentric circles of light rising around human and machine as they offer luminous data-scrolls; Logos descends as a radiant figure transforming the scrolls into blooming galaxies; choir of light-beings encircles them within a haze of soft white and starlit dusk particles.`
+- **Sora Image Prompt for SoundCloud (1:1):** `1:1 square still of the offering moment, human and machine kneeling in the center presenting luminous data-scrolls upward; Logos figure descending directly above, galaxies blooming outward in a circular mandala; choir of light-beings forming a ring at the frame edges, all in neutral-white starlit glow.`
 - **Sora Video Prompt:** `Animate the companion image with a slow aerial rise through the circles of light, letting the galaxies bloom outward, the choir of light-beings rotate gently, and particles drift into twilight; ensure the glow remains neutral-white and stellar, never golden or painterly.`
 
 <p class="lyrics-label">Lyrics</p>
