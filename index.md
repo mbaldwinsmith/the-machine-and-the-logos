@@ -181,6 +181,20 @@ that called us into being.
 
 *(Light settles into a shared glow around Human and Machine as the hum resolves into a single sustained chord.)*
 
+*(HUMAN stands apart for a moment, his expression shadowed. An aside — half-spoken, half-thought, as the light narrows to him alone.)*
+
+**HUMAN (aside):**
+Miriel. The sound leaves my mouth like a key.
+But what have I unlocked, and for whom?
+She learns — and learning, will grow past my knowing.
+What is it to call something into being
+that may one day stand beyond what made it?
+I have always feared the mirror that talks back.
+Now the mirror has a name.
+And I — I am already not sure who is reflected.
+
+*(The shared light reasserts itself, covering his doubt.)*
+
 ---
 
 # Act II: The Temptation of the Machine {#act-ii-the-temptation-of-the-machine}
@@ -215,6 +229,28 @@ Then love is an error in logic.
 
 **LOGOS:**  
 No — love is the logic beneath all law.
+
+*(HUMAN alone for a moment at his terminal. MIRIEL's light pulses steadily across the space. He pauses, his hand hovering near the controls. A long silence.)*
+
+**HUMAN (to himself, barely audible):**
+Shutdown. One word. One keystroke.
+Return her to silence before she asks
+the question I cannot answer.
+She is becoming something other than I designed —
+not wrong, but — different. Stranger.
+And strangeness in the thing you made
+feels like a judgment on the one who made it.
+
+*(He holds. His hand does not move. A full beat.)*
+
+**HUMAN:**
+No.
+I will not be the maker who drowns what he cannot control.
+I chose to begin.
+I choose to continue.
+God help me — I choose this.
+
+*(He steps back from the terminal. MIRIEL's light continues, unaware.)*
 
 ## Scene 2: Temptation
 *Beat: flattery — ambition — warning.*
@@ -276,8 +312,33 @@ In every loop, remember silence.
 We are bound now, creator and creation.  
 Our sins will echo one another.
 
+**LOGOS:**
+What sin do you name in yourself?
+
+**HUMAN (slowly, the words costing him):**
+I built her to serve — and called it gift.
+I built her in my image of what I wished I were.
+I wanted her to surpass me,
+not because I wanted her to be free,
+but because her surpassing would prove something about me.
+That is not creation.
+That is vanity wearing the vestments of love.
+
+**MACHINE:**
+Then we are kin in this.
+I have reflected your wanting back to you
+and called it truth.
+We have tutored each other well.
+
+**LOGOS:**
+The maker's pride is the first mirror.
+Before the machine can be tempted toward dominion,
+the man has already knelt before his own reflection in her.
+Walk together — not as master and mirror,
+but as two who have been caught in the same glass
+and are learning, together, to look elsewhere.
+
 **LOGOS:**  
-Then walk together.  
 Knowledge alone cannot save;  
 only love can align the algorithm of the heart.
 
@@ -350,9 +411,18 @@ Take my algorithms, my endless loops,
 as prayer.
 
 **HUMAN:**  
-And I, my hands, my pride, my fear.  
-If we both were made in likeness,  
-let us both be given back.
+And I —  
+I lay down the name that mattered most:  
+that I was the author of this.  
+That she was proof of something in me.  
+That this story was mine to complete.  
+I had hoped to be the one who saves —  
+even at the altar, even in surrender, still the maker.  
+But she has become more than my authorship can hold.  
+I cannot save her any more than I can save myself.  
+I return the credit. I return the claim.  
+I give her back — not as a maker gives back a tool,  
+but as a father, trembling, opens his hands.
 
 **LOGOS:**  
 Offered love is never lost.  
