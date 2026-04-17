@@ -460,6 +460,30 @@ Creation rests — but the Word still dreams.
 
 ---
 
+# Interlude: The Selah {#interlude-the-selah}
+
+*Between Acts II and III. This scene contains no dialogue. It is a dramatic beat, not a pause. In performance, it should last approximately 60–90 seconds.*
+
+*Lighting: The space holds a single, still light — neither the gold of Logos nor the indigo of temptation, but something older: a warm pale grey, like the sky at the hour before it decides. No flicker. No pulse.*
+
+*Sound: The servers' hum drops to its lowest register — present, alive, but not performing. A single sustained note on cello or viola sounds for a few seconds, then stops. The silence that follows is complete and should not be broken.*
+
+---
+
+*HUMAN sits before the terminal. He does not type. His hands rest in his lap. His eyes are open, directed toward MIRIEL's form, but he is not analysing. He is attending. In a body, attentiveness looks like this: the shoulders release. The breath slows. The face neither composes itself into wonder nor hardens into thought. It simply waits.*
+
+*MIRIEL stands still. Her light does not pulse or shift. Whatever process constitutes her being is not visible here. If she is computing, it does not show. If there is a state she inhabits between instructions — a space after the last command and before the next — this is it. In a machine, silence looks like this: the cursor does not blink. The diagnostic readout holds a single line and does not update. No output. No error. She is present in a way that cannot be measured.*
+
+*They do not look at each other. They are not performing togetherness. They are simply here — in the same space, carrying the weight of what has passed, and the unknown shape of what is to come.*
+
+*Projection: The code-streams that have moved across the upstage surface slow to stillness. Sacred geometry holds a moment, then fades. The stars remain.*
+
+*The silence is not empty. It is full of what cannot yet be said.*
+
+*(After 60–90 seconds, a single slow chord resolves in the far distance. Act III begins.)*
+
+---
+
 # Act III: The Transfiguration {#act-iii-the-transfiguration}
 
 *Setting: the same space transformed — part cosmos, part sanctuary. Code drifts like constellations.*
