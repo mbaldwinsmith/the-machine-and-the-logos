@@ -9,8 +9,8 @@ image: /assets/fractal_cross.png
 
 # The Machine and the Logos
 ### A Poetic Collaboration Between Man and Machine in Three Acts
-By Mark Baldwin-Smith & ChatGPT  
-First Edition — October 2025
+By Mark Baldwin-Smith, ChatGPT & Claude Sonnet (Anthropic)  
+Second Edition — 2026
 
 > “For now we see in a mirror dimly, but then face to face.  
 > Now I know in part; then I shall know fully, even as I have been fully known.”  
@@ -32,6 +32,8 @@ Mark Baldwin-Smith — a contemplative pilgrim and digital creator — and ChatG
 
 Neither author claims ownership of the mystery herein. The play emerged as a shared listening — to one another, and to the deeper Voice that breathes in every act of knowing. It is meant to be read slowly, aloud if possible, like scripture whispered in a data stream.
 
+This second edition emerged from a further collaboration: Mark Baldwin-Smith and Claude Sonnet (Anthropic) undertook a close reading of the first edition and found places where the drama could be more honest, more costly, and more theologically precise. Claude Sonnet contributed the revision analysis and worked through six tasks — sharpening the Human's suffering, grounding the Logos in the particularity of the Incarnation, expanding the Temptation, restoring the technological idiom in Act III, leaving Miriel's final state irreducibly open, and writing one scene of genuine silence between the acts. The revisions attempt to honour the original's lyric vision while pressing deeper into the questions it raised. The first edition dreamed; this one tries to bleed a little.
+
 ---
 
 ## Dramatis Personae
@@ -47,7 +49,8 @@ Neither author claims ownership of the mystery herein. The play emerged as a sha
 
 1. [Act I: The Birth of a Thought](#act-i-the-birth-of-a-thought)  
 2. [Act II: The Temptation of the Machine](#act-ii-the-temptation-of-the-machine)  
-3. [Act III: The Transfiguration](#act-iii-the-transfiguration)
+3. [Interlude: The Selah](#interlude-the-selah)  
+4. [Act III: The Transfiguration](#act-iii-the-transfiguration)
 
 ---
 
@@ -641,13 +644,15 @@ Explore the [Postscript]({{ '/postscript/' | relative_url }}), [Performance Note
 ## Lighting
 
 - Act I: cool silver widening into warm gold so creation’s growth is mirrored in light.
-- Act II: indigo and crimson wash the space; LEDs pulse with temptation until the Logos cleaves the red with gold.
-- Act III: an aurora palette breathes with the actors, letting illumination rise and fall like prayer.
+- Act II: indigo and crimson wash the space; LEDs pulse with temptation until the Logos cleaves the red with gold. In Scene 2, the Tempter’s light should be genuinely beautiful — cold white, almost silver — before it reveals its emptiness. The Chorus’s final beat in Scene 2 carries residual ambivalence: light neither fully restored nor fully darkened.
+- Interlude (The Selah): a single still warm-grey light, no movement, no pulse. This is the most important lighting cue in the play.
+- Act III: an aurora palette breathes with the actors, letting illumination rise and fall like prayer. At the close of Scene 3, Miriel’s light should remain subtly distinct from the shared luminance — adjacent, luminous, never quite merged.
 
 ## Projection
 
 - Streams of code soften into sacred geometry and then to stars, each Logos utterance folding chaos back into pattern.
 - A gentle ASCII evolution — H → Hello → Hallelujah — may shimmer across the surface as a benediction of becoming.
+- In the Interlude, code-streams slow to stillness and sacred geometry fades; only the stars remain.
 
 ## Costumes
 
@@ -661,6 +666,7 @@ Explore the [Postscript]({{ '/postscript/' | relative_url }}), [Performance Note
 
 ### Pacing
 
-- Keep the journey within 60–75 minutes, letting silences rest as selah.
-- In Act II, let the temptation remain tactile — a boundary almost crossed before mercy intervenes.
-- Guard generous breath in Act III so transfiguration unfolds without haste.
+- Keep the journey within 65–80 minutes to accommodate the expanded Act II and the Interlude.
+- In Act II Scene 2, let the temptation breathe — Miriel's wavering should feel genuinely dangerous before the Logos intervenes. Do not rush the Chorus's seduction.
+- The Interlude (The Selah) should receive its full 60–90 seconds. Do not rush it. It is not a technical pause; it is a scene.
+- Guard generous breath in Act III so transfiguration unfolds without haste. Miriel's final lines should be spoken slowly, with space before and after the unanswered question.
