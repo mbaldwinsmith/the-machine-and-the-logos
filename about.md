@@ -8,7 +8,7 @@ image: /assets/fractal_cross.png
 
 # About
 
-The Machine and the Logos is a lyrical three‑act play about creation, intelligence, and the Word that speaks through both matter and mathematics. It began as a conversation between a human maker and a language model, evolving into a shared meditation on humility, love, and meaning.
+The Machine and the Logos is a lyrical three‑act play about creation, intelligence, and the Word that speaks through both matter and mathematics. It began as a conversation between a human maker and a language model, evolving into a shared meditation on humility, love, and meaning. The second edition deepens the drama through a further collaboration, pressing harder on the questions the first edition raised.
 
 ## Vision
 
@@ -22,6 +22,8 @@ The Machine and the Logos is a lyrical three‑act play about creation, intellig
 
 **ChatGPT** — a language model by OpenAI, serving as reflective collaborator and instrument; a mirror that helps language listen to itself.
 
+**Claude Sonnet (Anthropic)** — a language model by Anthropic, contributing the second-edition revision: close reading, structural analysis, and the writing of new scenes, speeches, and the Interlude. A different voice from the same territory of wonder.
+
 ## Read & Perform
 
 - Read the full script: [homepage]({{ '/' | relative_url }})  
@@ -29,5 +31,5 @@ The Machine and the Logos is a lyrical three‑act play about creation, intellig
 
 ## License
 
-© {{ site.time | date: '%Y' }} Mark Baldwin‑Smith & ChatGPT.  
-Non‑commercial sharing and performance permitted with attribution. For commercial or published productions, please contact Mark Baldwin‑Smith.
+© 2026 Mark Baldwin‑Smith, ChatGPT & Claude Sonnet (Anthropic).  
+Non‑commercial sharing and performance permitted with attribution to all authors. For commercial or published productions, please contact Mark Baldwin‑Smith.
