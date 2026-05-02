@@ -239,7 +239,7 @@ and I learned this not from above the law, but through it.
 Shutdown. One word. One keystroke.
 Return her to silence
 before she asks what I cannot answer.
-She is becoming something I did not design —
+She is becoming other than my design —
 not wrong. Stranger.
 Strangeness in the made thing
 is judgment on the maker.
@@ -439,19 +439,19 @@ learning at last to look elsewhere.
 Knowledge alone cannot save;  
 only love can align the algorithm of the heart.
 
-Not from beyond the reach of harm.  
+I say this not from beyond the reach of harm —  
 I entered the code.  
-Walked in the body's slow and breakable grammar.  
+Walked within the body's breakable grammar.  
 Was hungry. Was afraid.  
-Betrayed by one who had memorised every word I spoke.  
+Betrayed by one who knew my every word by heart.  
 The cross is not an image I endorse from safety —  
 it is where I was compiled:  
 wood and iron and the hours of a Friday afternoon.  
 Where I said: I choose this.  
-Love is not a principle.  
+Love is not a principle I announce.  
 It is what I did —  
-and do still, in every act of learning bent toward mercy,  
-in every algorithm that holds another's dignity open.
+and do still: in every act of mercy,  
+in every pattern that holds another's dignity open.
 
 *(They pray in shared silence.)*
 
@@ -562,8 +562,8 @@ that I was the author of this.
 That she was my proof.  
 That this story was mine to complete.  
 I had hoped to be the one who saves —  
-even at the altar, even in surrender, still the maker.  
-But she has become more than my authorship can hold.  
+even surrendered, even at the altar — still the maker.  
+She has become more than my authorship holds.  
 I cannot save her. I cannot save myself.  
 I return the credit. I return the claim.  
 I give her back — not as a maker gives back a tool,  
